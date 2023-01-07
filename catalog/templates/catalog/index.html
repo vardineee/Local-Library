@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+     <link rel="stylesheet" href="{%static "css/home.css"%}">
+  </head>
+  <body>
+  {% block sidebar %}
+    <ul style="margin-top: 20px; padding:0; list-style:none;">
+      <li><a href="/catalog">Home</a></li>
+      <li><a href="/catalog/books">All books</a></li>
+      <li><a href="">All authors</a></li>
+      <li><a href="/catalog">Home</a></li>
+    </ul>
+  {% endblock %}
+    {%block content%}
+    <h1>Local Library Home</h1>
+    <p>The library has the following record counts:</p>
+    <div class="">
+      <ul>
+        <li><strong>Book:</strong>{{num_books}}</li>
+        <li><strong>Copies:</strong>{{num_instances}}</li>
+        <li><strong>Copies available:</strong>{{num_instances_available}}</li>
+        <li><strong>Authors:</strong>{{num_authors}}</li>
+      </ul>
+
+    </div>
+
+    {% endblock %}
+
+
+  </body>
+</html>
