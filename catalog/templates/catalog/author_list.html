@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% block sidebar %}
+      <ul style="margin-top: 20px; padding:0; list-style:none;">
+        <li><a href="/catalog">Home</a></li>
+        <li><a href="/catalog/books">All books</a></li>
+        <li><a href="/catalog/authors">All authors</a></li>
+      </ul>
+    {% endblock %}
+    <div class="">
+      <h1>Author List</h1>
+      {% if author_list %}
+      {% for author in author_list%}
+      <ul>
+        <li><a href={{author.get_absolute_url}}>{{author.first_name}} {{author.last_name}} ({{author.date_of_birth}}-{{author.date_of_death}})</a></li>
+      </ul>
+      {%endfor%}
+      {%else%}
+      <p>No author name available</p>
+      {%endif%}
+
+    </div>
+
+
+
+
+
+
+  </body>
+</html>

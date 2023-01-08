@@ -21,6 +21,17 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 2
     # queryset =  Book.objects.filter(title__icontains='tuk')
 
     # template_name = "catalog/book_list.html"
+
+
+class BookDetailView(generic.DetailView):
+    model = Book
+
+class AuthorListView(generic.ListView):
+    model = Author
+
+class AuthorDetailView(generic.DetailView):
+    model = Author

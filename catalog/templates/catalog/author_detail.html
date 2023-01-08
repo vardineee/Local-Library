@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% block sidebar %}
+      <ul style="margin-top: 20px; padding:0; list-style:none;">
+        <li><a href="/catalog">Home</a></li>
+        <li><a href="/catalog/books">All books</a></li>
+        <li><a href="/catalog/authors">All authors</a></li>
+        <li><a href="/catalog">Home</a></li>
+      </ul>
+    {% endblock %}
+    <h1>Author: {{author.first_name}} {{author.last_name}}</h1>
+    <p>{{author.date_of_birth}}-{{author.date_of_death}}</p>
+    {%if  author.book_set %}
+    <h3>Books</h3>
+    {% for book in author.book_set.all %}
+      <p><a href="{{book.get_absolute_url}}">{{book.title}}</a>{{book.count}}</p>
+      <p>{{book.summary}}</p>
+
+
+
+
+    {%endfor%}
+    {%else%}
+    <p>There is not available book</p>
+    {%endif%}
+
+  </body>
+</html>
